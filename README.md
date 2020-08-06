@@ -7,12 +7,12 @@ Basically pre-pre-pre-Alpha at the moment. Just a proof of concept.
 Work in progress
 
 What I know so far
--volatility
--Python3 / pip3
--Flask
--Flaskwebgui
--distorm3
--pycrypto
+     -volatility
+     -Python3 / pip3
+     -Flask
+     -Flaskwebgui
+     -distorm3
+     -pycrypto
 
 ## Usage
 `python3 pyvol-gui.py`
