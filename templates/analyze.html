@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+     <head>
+          <meta charset="utf-8">
+          <title>Pyvol Utility</title>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+          <script src="static/pyvol.js"></script>
+          <!-- <link rel="stylesheet" href="static/pyvol.css"> -->
+     </head>
+     <body style="display: inline-block; text-align: center; width: 100vw">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width: 100%">
+               <a class="navbar-brand" href="#">Pyvol</a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+               </button>
+
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                         <li class="nav-item active">
+                              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link" href="/analyze">Analyze </a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link" href="https://github.com/jrvick42/pyvol">Github </a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link" href="https://volatilityfoundation.org">Volatility Foundation </a>
+                         </li>
+                    </ul>
+               </div>
+          </nav>
+
+          <div class="analyzebody" style="margin: 20px; height: 90vh; width: 95vw; display: inline-block">
+               <div class="container" style="text-align: center; display: inline-block; width: 90%; height: 15%">
+                    <div class="row w-100 p-3" style="width: 100%">
+                         <div class="col" style="text-align: center; display: inline-block;">
+                              <label for="filelabel">Choose a file:</label>
+                              <br>
+                              <label id="filelabel" for="file" class="btn btn-md btn-info"><large>+</large></label>
+                              <br>
+                              <input type="file" style="visibility: hidden;" id="file">
+                         </div>
+                         <div class="col" style="text-align: center; display: inline-block;">
+                              <label for="command">Choose a command:</label>
+                              <br>
+                              <input type="text" class="form-control" id="command" placeholder="command">
+                         </div>
+                         <div class="col" style="text-align: center; display: inline-block;">
+                              <label for="options">Choose the options:</label>
+                              <br>
+                              <input type="text" class="form-control" id="options" placeholder="options">
+                         </div>
+                         <div class="col" style="text-align: center; display: inline-block; padding-top: 24px">
+                              <button id="submit_button" class="btn btn-lg btn-success" name="button">Go</button>
+                         </div>
+                    </div>
+               </div>
+               <div class="output-body" style="height: 80%; width: 95%; border: 1px solid black; border-radius: 3px; display: inline-block;  overflow: auto;">
+                    <div id="output" style="text-align: left; margin: 5px;"></div>
+               </div>
+
+          </div>
+
+     </body>
+
+
+          <script>
+           $("#submit_button").click(function(){
+
+                var file = $("#file").val();
+                var opts = $("#options").val();
+                var cmnd = $("#command").val();
+                var outf = $("#outputfile").val();
+
+               $.ajax({
+                 url: "/execute",
+                 type: "get",
+                 data: {memfile: file, options: opts, command: cmnd, outfile: outf},
+                 success: function(response) {
+                   $("#output").html(response);
+                 },
+                 error: function(xhr) {
+                   console.log("Literally no idea what happened")
+                 }
+               });
+           });
+          </script>
+</html>
