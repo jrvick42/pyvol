@@ -3,7 +3,7 @@
 import os
 import os.path
 
-VOLEXEC = 'python ~/Desktop/etc/pyvol/volatility/vol.py '
+VOLEXEC = 'python ~/Desktop/pyvol/volatility/vol.py '
 PYVOLDIR='./'
 OPTIONS = ["-h", "-f", "-d", "--profile", "-w", "--output", "--output-file", "-v"]
 
@@ -14,6 +14,7 @@ class Pyvol:
         self.file = file
         self.command = command
         self.outputfile = outputfile
+        self.tabs = []
 
     def add_file(self, file):
         if not os.path.exists(file):
@@ -106,16 +107,30 @@ class Pyvol:
             file.close()
 
         self.outputfile = str(outputfile)
+
     def execute(self):
         try:
             full_command = self.format_options()
             if full_command != None:
-                if self.outputfile != None:
-                    os.system( str(VOLEXEC) + str(full_command) + " > " + str(self.outputfile))
-                else:
-                    os.system( str(VOLEXEC) + str(full_command))
+                # if self.outputfile != None:
+                #     os.system( str(VOLEXEC) + str(full_command) + " > tmp/output/" + str(self.command) + "_output")
+                # else:
+                os.system( str(VOLEXEC) + str(full_command) + " > tmp/outputs/" + str(self.command) + "_output")
+
+                # Make note of the command just executed by adding it to tabs
+                self.tabs.append(self.command)
+
+                # Reset inpreparation for the next execution request
+                self.file = None
+                self.command = None
+                self.options = []
+                self.outputfile = None
+
         except Exception as e:
             print(e)
+
+    def getTabs(self):
+        return self.tabs
 
     def debug(self, extra = None):
         print("File: " + str(self.file))

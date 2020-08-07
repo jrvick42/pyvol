@@ -11,6 +11,9 @@ WIN_MEMDIR = "mem_dumps/windows/"
 LIN_MEMDIR = "mem_dumps/linux/"
 MAC_MEMDIR = "mem_dumps/mac/"
 
+# Singular instance of Pyvol
+vol = pyvol.Pyvol()
+
 # App and UI
 app = Flask(__name__)
 ui = FlaskUI(app, height=1000, width=1300)
@@ -29,16 +32,9 @@ def execute():
     # assert request.path == "/analyze"
     assert request.method == 'GET'
 
-    print("MADE IT 0")
-
     memfile = request.args['memfile'].split("\\")[-1]
     options = request.args['options']
     command = request.args['command']
-    # outfile = request.args['outfile']
-
-    print("made it 1")
-
-    vol = pyvol.Pyvol()
 
     if memfile != None:
         vol.add_file(WIN_MEMDIR + str(memfile))
@@ -54,19 +50,15 @@ def execute():
     # else:
     vol.add_outputfile("out")
 
-    print("made it 2")
-
-
     vol.debug()
 
     vol.execute()
 
-    # if outfile != None:
-    file = open("out", 'r')
+    file = open("tmp/outputs/" + str(command) + "_output", 'r')
     ret = file.read()
     file.close()
 
-    return render_template("output.html", data = ret)
+    return render_template("output.html", data = ret, tab = str(command))
 
 # Start
 ui.run()

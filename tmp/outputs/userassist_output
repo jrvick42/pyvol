@@ -1,0 +1,176 @@
+----------------------------
+Registry: \Device\HarddiskVolume1\Documents and Settings\callb\NTUSER.DAT 
+Path: Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{5E6AB780-7743-11CF-A12B-00AA004AE837}\Count
+Last updated: 2012-11-24 18:12:53 UTC+0000
+
+Subkeys:
+
+Values:
+
+REG_BINARY    UEME_CTLSESSION : Raw Data:
+0x00000000  7a 53 6e 0e 03 00 00 00                           zSn.....
+----------------------------
+Registry: \Device\HarddiskVolume1\Documents and Settings\callb\NTUSER.DAT 
+Path: Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{75048700-EF1F-11D0-9888-006097DEACF9}\Count
+Last updated: 2012-11-27 01:56:21 UTC+0000
+
+Subkeys:
+
+Values:
+
+REG_BINARY    UEME_CTLSESSION : Raw Data:
+0x00000000  93 60 6e 0e 03 00 00 00                           .`n.....
+
+REG_BINARY    UEME_RUNPIDL:C:\Documents and Settings\All Users\Start Menu\Set Program Access and Defaults.lnk : 
+ID:             1
+Count:          14
+Last updated:   2012-11-03 22:53:49 UTC+0000
+Raw Data:
+0x00000000  01 00 00 00 13 00 00 00 00 f7 81 16 16 ba cd 01   ................
+
+REG_BINARY    UEME_RUNPIDL:%csidl2%\MSN Explorer.lnk : 
+ID:             1
+Count:          13
+Last updated:   2012-11-03 22:53:49 UTC+0000
+Raw Data:
+0x00000000  01 00 00 00 12 00 00 00 00 f7 81 16 16 ba cd 01   ................
+
+REG_BINARY    UEME_RUNPIDL:%csidl2%\Windows Media Player.lnk : 
+ID:             1
+Count:          12
+Last updated:   2012-11-03 22:53:49 UTC+0000
+Raw Data:
+0x00000000  01 00 00 00 11 00 00 00 00 f7 81 16 16 ba cd 01   ................
+
+REG_BINARY    UEME_RUNPIDL:%csidl2%\Windows Messenger.lnk : 
+ID:             1
+Count:          11
+Last updated:   2012-11-03 22:53:49 UTC+0000
+Raw Data:
+0x00000000  01 00 00 00 10 00 00 00 00 f7 81 16 16 ba cd 01   ................
+
+REG_BINARY    UEME_RUNPIDL:%csidl2%\Accessories\Tour Windows XP.lnk : 
+ID:             1
+Count:          10
+Last updated:   2012-11-03 22:53:49 UTC+0000
+Raw Data:
+0x00000000  01 00 00 00 0f 00 00 00 00 f7 81 16 16 ba cd 01   ................
+
+REG_BINARY    UEME_RUNPIDL:%csidl2%\Accessories\Windows Movie Maker.lnk : 
+ID:             1
+Count:          9
+Last updated:   2012-11-03 22:53:49 UTC+0000
+Raw Data:
+0x00000000  01 00 00 00 0e 00 00 00 00 f7 81 16 16 ba cd 01   ................
+
+REG_BINARY    UEME_CTLCUACount:ctor : 
+ID:             1
+Count:          2
+Last updated:   1970-01-01 00:00:00 UTC+0000
+Raw Data:
+0x00000000  01 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00   ................
+
+REG_BINARY    UEME_RUNPATH    : 
+ID:             3
+Count:          9
+Last updated:   2012-11-27 01:56:21 UTC+0000
+Raw Data:
+0x00000000  03 00 00 00 0e 00 00 00 20 62 48 66 42 cc cd 01   .........bHfB...
+
+REG_BINARY    UEME_RUNPATH:C:\WINDOWS\System32\winver.exe : 
+ID:             2
+Count:          1
+Last updated:   2012-11-23 15:46:07 UTC+0000
+Raw Data:
+0x00000000  02 00 00 00 06 00 00 00 f0 06 41 a7 91 c9 cd 01   ..........A.....
+
+REG_BINARY    UEME_RUNCPL     : 
+ID:             2
+Count:          3
+Last updated:   2012-11-26 20:09:29 UTC+0000
+Raw Data:
+0x00000000  02 00 00 00 08 00 00 00 10 22 1b f1 11 cc cd 01   ........."......
+
+REG_BINARY    UEME_RUNCPL:SYSDM.CPL : 
+ID:             2
+Count:          1
+Last updated:   2012-11-23 16:01:32 UTC+0000
+Raw Data:
+0x00000000  02 00 00 00 06 00 00 00 a0 48 99 ce 93 c9 cd 01   .........H......
+
+REG_BINARY    UEME_RUNPATH:Z:\WindowsXP-KB835935-SP2-ENU.exe : 
+ID:             2
+Count:          1
+Last updated:   2012-11-23 16:03:27 UTC+0000
+Raw Data:
+0x00000000  02 00 00 00 06 00 00 00 d0 a1 4d 13 94 c9 cd 01   ..........M.....
+
+REG_BINARY    UEME_RUNPATH:Z:\WindowsXP-KB936929-SP3-x86-ENU.exe : 
+ID:             2
+Count:          1
+Last updated:   2012-11-23 16:20:31 UTC+0000
+Raw Data:
+0x00000000  02 00 00 00 06 00 00 00 20 6a 3f 75 96 c9 cd 01   .........j?u....
+
+REG_BINARY    UEME_RUNPATH:Z:\IE8-WindowsXP-x86-ENU.exe : 
+ID:             2
+Count:          1
+Last updated:   2012-11-23 16:45:32 UTC+0000
+Raw Data:
+0x00000000  02 00 00 00 06 00 00 00 40 de 14 f4 99 c9 cd 01   ........@.......
+
+REG_BINARY    UEME_RUNPIDL    : 
+ID:             3
+Count:          2
+Last updated:   2012-11-26 22:06:33 UTC+0000
+Raw Data:
+0x00000000  03 00 00 00 07 00 00 00 e0 7e fb 4b 22 cc cd 01   .........~.K"...
+
+REG_BINARY    UEME_RUNPIDL:%csidl2%\Outlook Express.lnk : 
+ID:             2
+Count:          1
+Last updated:   2012-11-24 18:05:42 UTC+0000
+Raw Data:
+0x00000000  02 00 00 00 06 00 00 00 c0 70 43 51 6e ca cd 01   .........pCQn...
+
+REG_BINARY    UEME_RUNPATH:C:\Program Files\Outlook Express\msimn.exe : 
+ID:             3
+Count:          2
+Last updated:   2012-11-26 22:06:33 UTC+0000
+Raw Data:
+0x00000000  03 00 00 00 07 00 00 00 e0 7e fb 4b 22 cc cd 01   .........~.K"...
+
+REG_BINARY    UEME_RUNCPL:"C:\WINDOWS\system32\firewall.cpl",Windows Firewall : 
+ID:             2
+Count:          1
+Last updated:   2012-11-24 18:12:45 UTC+0000
+Raw Data:
+0x00000000  02 00 00 00 06 00 00 00 00 66 bb 4d 6f ca cd 01   .........f.Mo...
+
+REG_BINARY    UEME_RUNPATH:C:\WINDOWS\system32\mmc.exe : 
+ID:             2
+Count:          2
+Last updated:   2012-11-26 19:31:42 UTC+0000
+Raw Data:
+0x00000000  02 00 00 00 07 00 00 00 40 10 e0 a9 0c cc cd 01   ........@.......
+
+REG_BINARY    UEME_RUNCPL:timedate.cpl : 
+ID:             2
+Count:          1
+Last updated:   2012-11-26 20:09:29 UTC+0000
+Raw Data:
+0x00000000  02 00 00 00 06 00 00 00 10 22 1b f1 11 cc cd 01   ........."......
+
+REG_BINARY    UEME_RUNPIDL:::{2559A1F5-21D7-11D4-BDAF-00C04F60B9F0} : 
+ID:             3
+Count:          1
+Last updated:   2012-11-26 22:06:33 UTC+0000
+Raw Data:
+0x00000000  03 00 00 00 06 00 00 00 e0 7e fb 4b 22 cc cd 01   .........~.K"...
+
+REG_BINARY    UEME_RUNPATH:C:\WINDOWS\system32\cmd.exe : 
+ID:             3
+Count:          1
+Last updated:   2012-11-27 01:56:21 UTC+0000
+Raw Data:
+0x00000000  03 00 00 00 06 00 00 00 20 62 48 66 42 cc cd 01   .........bHfB...

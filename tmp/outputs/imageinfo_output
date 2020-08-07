@@ -1,0 +1,12 @@
+          Suggested Profile(s) : WinXPSP2x86, WinXPSP3x86 (Instantiated with WinXPSP2x86)
+                     AS Layer1 : IA32PagedMemory (Kernel AS)
+                     AS Layer2 : FileAddressSpace (/home/josh/Desktop/pyvol/mem_dumps/windows/sample001.bin)
+                      PAE type : No PAE
+                           DTB : 0x39000L
+                          KDBG : 0x8054cde0L
+          Number of Processors : 1
+     Image Type (Service Pack) : 3
+                KPCR for CPU 0 : 0xffdff000L
+             KUSER_SHARED_DATA : 0xffdf0000L
+           Image date and time : 2012-11-27 01:57:28 UTC+0000
+     Image local date and time : 2012-11-26 19:57:28 -0600
