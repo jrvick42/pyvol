@@ -27,6 +27,17 @@ def index():
 def analyze():
     return render_template('analyze.html')
 
+@app.route("/removefile", methods=["GET"])
+def removefile():
+    assert request.method == 'GET'
+
+    if vol.remove_file():
+        return "file removed"
+
+    return "file not removed"
+
+
+
 @app.route("/execute", methods=['GET'])
 def execute():
     # assert request.path == "/analyze"

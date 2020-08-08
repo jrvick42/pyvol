@@ -42,8 +42,9 @@
                               <label for="filelabel">Choose a file:</label>
                               <br>
                               <label id="filelabel" for="file" class="btn btn-md btn-info"><large>+</large></label>
-                              <br>
-                              <input type="file" style="visibility: hidden;" id="file">
+                              <button id="removefile" class="btn btn-md btn-danger" style="display: none; margin-bottom: 8px"><large>x</large></button>
+                              <input type="file" style="visibility: hidden; display: none" id="file">
+                              <p id="chosenfile">No file chosen</p>
                          </div>
                          <div class="col" style="text-align: center; display: inline-block;">
                               <label for="command">Choose a command:</label>
@@ -98,6 +99,40 @@
                          },
                          error: function(xhr) {
                          console.log("Literally no idea what happened")
+                         }
+                    });
+               });
+
+               // A file has been selected so we might need to add the remove file button
+               $("#file").change(function() {
+
+                    // did we just remove a file?
+                    if($("#file").val() == ""){ return };
+
+                    // Otherwise, show the remove button and change the displayed filename
+                    $("#removefile").css("display", "inline-block")
+                    $("#chosenfile").html($("#file").val())
+               });
+
+               $("#removefile").click(function() {
+
+                    // need to remove the file in Pyvol, so make the request to the server
+                    $.ajax({
+                         url: "/removefile",
+                         type: "get",
+                         success: function(response) {
+                              if(response == "file removed"){
+                                   // the removefile button has been clicked, so update the file select value
+                                   $("#file").val("")
+                                   // remove the remove file button
+                                   $("#removefile").css("display", "none")
+                                   // Update the displayed filename
+                                   $("#chosenfile").html("No file chosen")
+                              }
+                         },
+                         error: function(xhr) {
+                              alert("File could not be removed")
+                              console.log("Literally no idea what happened")
                          }
                     });
                });

@@ -32,11 +32,11 @@ class Pyvol:
     def remove_file(self):
         if self.file == None:
             print("No file is present")
-            return
         else:
             self.file = None
             print("File removed")
-            return
+
+        return self.file == None
 
     def add_option(self, option):
         if option == None or option == "":
