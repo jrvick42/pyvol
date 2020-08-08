@@ -8,7 +8,7 @@
           <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
           <script src="static/pyvol.js"></script>
-          <!-- <link rel="stylesheet" href="static/pyvol.css"> -->
+          <link rel="stylesheet" href="static/pyvol.css">
      </head>
      <body style="display: inline-block; text-align: center; width: 100vw">
           <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width: 100%">
@@ -58,6 +58,9 @@
                          </div>
                          <div class="col" style="text-align: center; display: inline-block; padding-top: 24px">
                               <button id="submit_button" class="btn btn-lg btn-success" name="button">Go</button>
+                              <div class="drawing" id="loading">
+                                   <div class="loading-dot"></div>
+                              </div>
                          </div>
                     </div>
                </div>
@@ -73,6 +76,8 @@
           $(document).ready(function() {
 
                $("#submit_button").click(function(){
+
+                    loading()
 
                     var file = $("#file").val();
                     var opts = $("#options").val();
@@ -95,12 +100,15 @@
 
                               // set display back to normal for the most reecent Command
                               $(".output-body").find(".command-output").last().css("display", "inline-block")
-
+                              done_loading()
                          },
                          error: function(xhr) {
-                         console.log("Literally no idea what happened")
+                              console.log("Literally no idea what happened")
+                              done_loading()
                          }
                     });
+
+
                });
 
                // A file has been selected so we might need to add the remove file button
@@ -165,6 +173,30 @@
                     $(ele2).css("display", "inline-block");
                }));
           });
+
+          function loading(){
+               // enable the GO button
+               document.getElementById('submit_button').disabled = true;
+               // start the loading icon
+               document.getElementById('loading').style.display = "inline-block"
+
+               // would be nice but didn't work
+               // append the loading div section to the appropriate div
+               // var parent = $("#submit_button").parent()
+               // parent.append('<div class="drawing" id="loading"><div class="loading-dot"></div></div>')
+          }
+
+          function done_loading(){
+               // disable the GO button
+               document.getElementById('submit_button').disabled = false;
+               // stop the loading icon
+               document.getElementById('loading').style.display = "none"
+
+               // would be nice but didn't work
+               // remove the loading div section to the appropriate div
+               // var parent = $("#submit_button").parent()
+               // parent.children().last().remove()
+          }
 
      </script>
 </html>
