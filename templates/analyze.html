@@ -61,52 +61,75 @@
                     </div>
                </div>
                <div class="output-body" id="output-body" style="height: 80%; width: 95%; border: 1px solid black; border-radius: 3px; display: inline-block;  overflow: auto;">
-                    <ul class="nav nav-tabs navbar-dark bg-dark" id="navtabs">
-
-                    </ul>
+                    <ul class="nav nav-tabs navbar-dark bg-dark" id="navtabs"></ul>
                </div>
-
           </div>
-
      </body>
 
 
      <script>
-          $("#submit_button").click(function(){
 
-               var file = $("#file").val();
-               var opts = $("#options").val();
-               var cmnd = $("#command").val();
-               var outf = $("#outputfile").val();
+          $(document).ready(function() {
 
-               $.ajax({
-                    url: "/execute",
-                    type: "get",
-                    data: {memfile: file, options: opts, command: cmnd, outfile: outf},
-                    success: function(response) {
-                         var newtab = "<li class='nav-item'><a class='nav-link' href='#' id='" + cmnd + "_tab'>" + cmnd + "</a></li>"
-                         $("#navtabs").append(newtab)
-                         $("#output-body").append(response);
+               $("#submit_button").click(function(){
 
-                         $(".command-output").each(function() {
-                              // set display: none
-                              $(this).css("display", "none")
-                         });
+                    var file = $("#file").val();
+                    var opts = $("#options").val();
+                    var cmnd = $("#command").val();
+                    var outf = $("#outputfile").val();
 
-                         // set display back to normal for the most reecent Command
-                         $(".output-body").find(".command-output").last().css("display", "inline-block")
+                    $.ajax({
+                         url: "/execute",
+                         type: "get",
+                         data: {memfile: file, options: opts, command: cmnd, outfile: outf},
+                         success: function(response) {
+                              var newtab = "<li class='nav-item'><a class='nav-link' href='#' id='" + cmnd + "_tab'>" + cmnd + "</a></li>"
+                              $("#navtabs").append(newtab)
+                              $("#output-body").append(response);
 
-                    },
-                    error: function(xhr) {
-                    console.log("Literally no idea what happened")
-                    }
+                              $(".command-output").each(function() {
+                                   // set display: none
+                                   $(this).css("display", "none")
+                              });
+
+                              // set display back to normal for the most reecent Command
+                              $(".output-body").find(".command-output").last().css("display", "inline-block")
+
+                         },
+                         error: function(xhr) {
+                         console.log("Literally no idea what happened")
+                         }
+                    });
                });
+
+               $(".areyousure").click(function() {
+                    if (confirm("Are you sure you want to leave this page?\nYour progress will not be saved")){
+
+                    };
+               });
+
+               $("#navtabs").on("click", "li.nav-item", (function() {
+
+                    var tab_length = $(".output-body").children(".command-output").length;
+                    var index = 0;
+
+                    for(i = 0; i < tab_length; i++){
+                         var nav = $("#navtabs").children(".nav-item")[i];
+                         var nava = $(nav).children(".nav-link")[0];
+
+                         if($(nava).attr("id") != $(this).children(".nav-link").attr("id")){
+                              var ele = $(".output-body").children(".command-output")[i];
+                              $(ele).css("display", "none");
+                         }
+                         else{
+                              index = i;
+                         };
+                    };
+
+                    var ele2 = $(".output-body").children(".command-output")[index];
+                    $(ele2).css("display", "inline-block");
+               }));
           });
 
-          $(".areyousure").click(function() {
-               if (confirm("Are you sure you want to leave this page?\nYour progress will not be saved")){
-
-               }
-          })
      </script>
 </html>

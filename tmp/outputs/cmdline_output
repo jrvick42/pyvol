@@ -1,0 +1,62 @@
+************************************************************************
+System pid:      4
+************************************************************************
+smss.exe pid:    356
+Command line : \SystemRoot\System32\smss.exe
+************************************************************************
+csrss.exe pid:    604
+Command line : C:\WINDOWS\system32\csrss.exe ObjectDirectory=\Windows SharedSection=1024,3072,512 Windows=On SubSystemType=Windows ServerDll=basesrv,1 ServerDll=winsrv:UserServerDllInitialization,3 ServerDll=winsrv:ConServerDllInitialization,2 ProfileControl=Off MaxRequestThreads=16
+************************************************************************
+winlogon.exe pid:    628
+Command line : winlogon.exe
+************************************************************************
+services.exe pid:    680
+Command line : C:\WINDOWS\system32\services.exe
+************************************************************************
+lsass.exe pid:    692
+Command line : C:\WINDOWS\system32\lsass.exe
+************************************************************************
+svchost.exe pid:    852
+Command line : C:\WINDOWS\system32\svchost -k DcomLaunch
+************************************************************************
+svchost.exe pid:    940
+Command line : C:\WINDOWS\system32\svchost -k rpcss
+************************************************************************
+svchost.exe pid:   1024
+Command line : C:\WINDOWS\System32\svchost.exe -k netsvcs
+************************************************************************
+svchost.exe pid:   1068
+Command line : C:\WINDOWS\System32\svchost.exe -k NetworkService
+************************************************************************
+svchost.exe pid:   1116
+Command line : C:\WINDOWS\System32\svchost.exe -k LocalService
+************************************************************************
+spoolsv.exe pid:   1348
+Command line : C:\WINDOWS\system32\spoolsv.exe
+************************************************************************
+alg.exe pid:   1888
+Command line : C:\WINDOWS\System32\alg.exe
+************************************************************************
+explorer.exe pid:    284
+Command line : C:\WINDOWS\Explorer.EXE
+************************************************************************
+msmsgs.exe pid:    548
+Command line : "C:\Program Files\Messenger\msmsgs.exe" /background
+************************************************************************
+ctfmon.exe pid:    556
+Command line : "C:\WINDOWS\system32\ctfmon.exe" 
+************************************************************************
+wuauclt.exe pid:   1628
+Command line : "C:\WINDOWS\system32\wuauclt.exe"
+************************************************************************
+msimn.exe pid:   1984
+Command line : "C:\Program Files\Outlook Express\msimn.exe" 
+************************************************************************
+wc.exe pid:    364
+Command line : wc.exe -e -o h.out
+************************************************************************
+cmd.exe pid:   1796
+Command line : "C:\WINDOWS\system32\cmd.exe" 
+************************************************************************
+mdd.exe pid:    244
+Command line : mdd.exe -o callb-memdump.bin
