@@ -1,5 +1,11 @@
-<div class="command-output" id="{{ tab }}_output" style="text-align: left; margin: 5px;">
-     <tt id="output-box">
-          <pre>{{ data }}</pre>
-     </tt>
-</div>
+{% if filtered %}
+          <tt id="output-box">
+               <pre>{{ data }}</pre>
+          </tt>
+{% else %}
+     <div class="command-output" id="{{ tab }}_output" style="text-align: left; margin: 5px; float: left">
+          <tt id="output-box">
+               <pre>{{ data }}</pre>
+          </tt>
+     </div>
+{% endif %}

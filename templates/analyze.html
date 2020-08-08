@@ -35,7 +35,8 @@
                </div>
           </nav>
 
-          <div class="analyzebody" style="margin: 20px; height: 90vh; width: 95vw; display: inline-block">
+          <!-- <div class="analyzebody" style="margin: 20px; height: 90vh; width: 95vw; display: inline-block"> -->
+          <div class="analyzebody" style="padding: 20px; height: 98vh; width: 100%; display: inline-block">
                <div class="container" style="text-align: center; display: inline-block; width: 90%; height: 15%">
                     <div class="row w-100 p-3" style="width: 100%">
                          <div class="col" style="text-align: center; display: inline-block;">
@@ -64,8 +65,20 @@
                          </div>
                     </div>
                </div>
-               <div class="output-body" id="output-body" style="height: 80%; width: 95%; border: 1px solid black; border-radius: 3px; display: inline-block;  overflow: auto;">
-                    <ul class="nav nav-tabs navbar-dark bg-dark" id="navtabs"></ul>
+               <div class="outer-output-body" style="height: 80%; width: 100%;  border: 1px solid black; border-radius: 3px; display: inline-block">
+                    <ul class="nav nav-tabs navbar-dark bg-dark" id="navtabs">
+                         <li class='nav-item' id="placeholderltab"><a class='nav-link' href='#'>Empty</a></li>
+                    </ul>
+                         <span id="searchspan" style="float: right; width: 100%; border-bottom: 1px solid grey">
+                              <button type="button" class="btn btn-md btn-light" name="search-button" id="search-button" style=" display: inline-block; margin-bottom: 1px; float: right">Search</button>
+                              <input class="form-control" id="search" type="text" placeholder="enter filter" aria-label="Search" style="width: 250px; display: inline-block; float: right">
+                              <button type="button" class="btn btn-md btn-danger" name="end-search-button" id="end-search-button" style=" display: none; margin-bottom: 1px; float: right">x</button>
+                         </span>
+                         <div class="output-body" id="output-body" style="height: 100%; width: 100%; display: inline-block;  overflow: auto;">
+
+               </div>
+
+
                </div>
           </div>
      </body>
@@ -90,6 +103,13 @@
                          data: {memfile: file, options: opts, command: cmnd, outfile: outf},
                          success: function(response) {
                               var newtab = "<li class='nav-item'><a class='nav-link' href='#' id='" + cmnd + "_tab'>" + cmnd + "</a></li>"
+
+                              // if the first tab is the placeholer, remove it
+                              if($("#placeholderltab").length == 1){
+                                   $("#navtabs").find("li").first().remove()
+                              }
+
+                              // append the new tab
                               $("#navtabs").append(newtab)
                               $("#output-body").append(response);
 
@@ -100,6 +120,8 @@
 
                               // set display back to normal for the most reecent Command
                               $(".output-body").find(".command-output").last().css("display", "inline-block")
+
+                              $("#searchspan").css("display", "block")
                               done_loading()
                          },
                          error: function(xhr) {
@@ -173,6 +195,73 @@
                     $(ele2).css("display", "inline-block");
                }));
           });
+
+          $("#search-button").click(function() {
+               // Do something to filter the current output in respect to the input
+               // entered into the search bar
+
+               var input_filter = $("#search").val()
+               if(input_filter == ""){ return; };
+
+               // get the name of the command whose output is currently displayed
+               var current_output = ""
+               $(".command-output").each(function() {
+
+                    if(document.getElementById($(this).attr('id')).style.display != "none"){
+                         current_output = $(this).attr('id');
+                         // break;
+                    }
+               });
+
+               // make a request to the server, where data is the command name and search term
+               $.ajax({
+                    url: "/filter",
+                    type: "get",
+                    data: {file: current_output, filter: input_filter},
+                    success: function(response) {
+                         document.getElementById(current_output).innerHTML = response;
+                    },
+                    error: function(xhr) {
+                         alert("File could not be filtered")
+                         console.log("Literally no idea what happened")
+                    }
+               });
+
+               // Once filtered, add the option to remove the filter
+               $("#end-search-button").css("display","inline-block")
+          });
+
+          $("#end-search-button").click(function() {
+
+               // Do something to reset the filtered output back to the original form
+
+               // get the name of the command whose output is currently displayed
+               var current_output = ""
+               $(".command-output").each(function() {
+
+                    if(document.getElementById($(this).attr('id')).style.display != "none"){
+                         current_output = $(this).attr('id');
+                         // break;
+                    }
+               });
+
+               $.ajax({
+                    url: "/undofilter",
+                    type: "get",
+                    data: {file: current_output},
+                    success: function(response) {
+                         document.getElementById(current_output).innerHTML = response;
+                    },
+                    error: function(xhr) {
+                         alert("File could not be unfiltered")
+                         console.log("Literally no idea what happened")
+                    }
+               });
+
+
+               // Remove the end search button form the screen
+               $("#end-search-button").css("display","none")
+          })
 
           function loading(){
                // enable the GO button

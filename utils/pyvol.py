@@ -132,6 +132,27 @@ class Pyvol:
     def getTabs(self):
         return self.tabs
 
+    def filter(self, file, filter):
+        print(file)
+        print(filter)
+
+        base_file = "tmp/outputs/" + file
+
+        if not os.path.exists(base_file):
+            return False
+        if filter == None or filter == "":
+            return False
+
+        filter_file = f"tmp/filters/{file}"
+        os.system("grep " + str(filter) + " " + base_file + " > " + str(filter_file))
+
+        if not os.path.exists(filter_file):
+            return False
+
+        return True
+
+
+
     def debug(self, extra = None):
         print("File: " + str(self.file))
         print("Options: " + str(self.options))

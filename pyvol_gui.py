@@ -37,6 +37,36 @@ def removefile():
     return "file not removed"
 
 
+@app.route("/filter", methods=["GET"])
+def filter():
+    assert request.method == 'GET'
+
+    filename = request.args['file']
+    filter = request.args['filter']
+
+    if vol.filter(filename, filter):
+
+        file = open("tmp/filters/" + str(filename), 'r')
+        ret = file.read()
+        file.close()
+
+        return render_template("output.html", data = ret, filtered = str(filename))
+
+    else:
+        return "Could not filter output"
+
+@app.route("/undofilter", methods=["GET"])
+def undofilter():
+    assert request.method == 'GET'
+
+    filename = request.args['file']
+
+    file = open("tmp/outputs/" + str(filename), 'r')
+    ret = file.read()
+    file.close()
+
+    return render_template("output.html", data = ret, filtered = str(filename))
+
 
 @app.route("/execute", methods=['GET'])
 def execute():
