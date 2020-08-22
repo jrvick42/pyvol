@@ -1,0 +1,4 @@
+volatility/
+mem_dumps/
+utils/__pycache__/
+tmp/*
