@@ -19,13 +19,17 @@ app = Flask(__name__)
 ui = FlaskUI(app, height=1000, width=1300)
 
 # Routes
+
+
 @app.route("/", methods=['GET'])
 def index():
     return render_template('home.html')
 
+
 @app.route("/analyze", methods=['GET'])
 def analyze():
     return render_template('analyze.html')
+
 
 @app.route("/removefile", methods=["GET"])
 def removefile():
@@ -50,10 +54,11 @@ def filter():
         ret = file.read()
         file.close()
 
-        return render_template("output.html", data = ret, filtered = str(filename))
+        return render_template("output.html", data=ret, filtered=str(filename))
 
     else:
         return "Could not filter output"
+
 
 @app.route("/undofilter", methods=["GET"])
 def undofilter():
@@ -65,7 +70,7 @@ def undofilter():
     ret = file.read()
     file.close()
 
-    return render_template("output.html", data = ret, filtered = str(filename))
+    return render_template("output.html", data=ret, filtered=str(filename))
 
 
 @app.route("/execute", methods=['GET'])
@@ -99,7 +104,8 @@ def execute():
     ret = file.read()
     file.close()
 
-    return render_template("output.html", data = ret, tab = str(command))
+    return render_template("output.html", data=ret, tab=str(command))
+
 
 # Start
 ui.run()
